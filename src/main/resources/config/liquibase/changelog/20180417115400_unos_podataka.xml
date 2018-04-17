@@ -15,23 +15,35 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity Status.
+        Added the entity PrijavaMaterijal.
     -->
-    <changeSet id="20180416193025-1" author="jhipster">
-        <createTable tableName="status">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="naziv" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
+    <changeSet id="20180417115400-1" author="jhipster">
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/opstina.csv"
+                  separator=","
+                  tableName="opstina"/>
 
-            <column name="redosled" type="integer">
-                <constraints nullable="true" />
-            </column>
 
-            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
-        </createTable>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/mesto.csv"
+                  separator=","
+                  tableName="mesto"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/status.csv"
+                  separator=","
+                  tableName="status"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/stub_tip.csv"
+                  separator=","
+                  tableName="stub_tip"/>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/stub.csv"
+                  separator=","
+                  tableName="stub"/>
+
 
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

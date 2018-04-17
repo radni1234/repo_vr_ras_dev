@@ -15,6 +15,14 @@ export class StubService {
 
     constructor(private http: HttpClient) { }
 
+    vratiStubove(lon_od, lon_do, lat_od, lat_do): Observable<Stub[]> {
+        // const options = createRequestOption(req);
+        console.log('vratiStubove');
+
+        return this.http.get<Stub[]>(this.resourceUrl + '?lon_od=' + lon_od + '&lon_do=' + lon_do + '&lat_od=' + lat_od + '&lat_do=' + lat_do)
+            .map((response) => response);
+    }
+
     create(stub: Stub): Observable<EntityResponseType> {
         const copy = this.convert(stub);
         return this.http.post<Stub>(this.resourceUrl, copy, { observe: 'response' })

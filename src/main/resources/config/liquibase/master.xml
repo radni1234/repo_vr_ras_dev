@@ -36,4 +36,5 @@
     <include file="config/liquibase/changelog/20180416193032_added_entity_constraints_PrijavaIntervencija.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180416193033_added_entity_constraints_PrijavaMaterijal.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <include file="config/liquibase/changelog/20180417115400_unos_podataka.xml" relativeToChangelogFile="false"/>
 </databaseChangeLog>

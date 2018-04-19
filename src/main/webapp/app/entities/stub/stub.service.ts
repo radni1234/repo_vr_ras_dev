@@ -19,7 +19,7 @@ export class StubService {
         // const options = createRequestOption(req);
         console.log('vratiStubove');
 
-        return this.http.get<Stub[]>(this.resourceUrl + '?lon_od=' + lon_od + '&lon_do=' + lon_do + '&lat_od=' + lat_od + '&lat_do=' + lat_do)
+        return this.http.get<Stub[]>('api/stubovi' + '?lon_od=' + lon_od + '&lon_do=' + lon_do + '&lat_od=' + lat_od + '&lat_do=' + lat_do)
             .map((response) => response);
     }
 

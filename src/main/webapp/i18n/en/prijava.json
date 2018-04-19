@@ -21,7 +21,8 @@
             "telefon": "Telefon",
             "email": "Email",
             "datum": "Datum",
-            "stub": "Stub"
+            "stub": "Stub",
+            "nova": "Report malfunction"
         }
     }
 }

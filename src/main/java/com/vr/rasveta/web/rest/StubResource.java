@@ -40,7 +40,7 @@ public class StubResource {
         this.stubRepository = stubRepository;
     }
 
-    @RequestMapping(value="/stubs", params = {"lon_od", "lon_do", "lat_od", "lat_do"}, method=RequestMethod.GET)
+    @RequestMapping(value="/stubovi", params = {"lon_od", "lon_do", "lat_od", "lat_do"}, method=RequestMethod.GET)
     @Timed
     public List<Stub> getStubOdDo(@RequestParam(value = "lon_od") Double lon_od,
                                   @RequestParam(value = "lon_do") Double lon_do,

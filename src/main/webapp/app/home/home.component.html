@@ -18,7 +18,15 @@
                 [latitude]="s.latD"
                 [longitude]="s.lonD"
     >
-        <agm-info-window>{{s.rbr}}<br>{{s.latD}}<br>{{s.lonD}}</agm-info-window>
+        <agm-info-window>{{s.rbr}}<br>
+                         {{s.latD}}<br>
+                         {{s.lonD}}<br><br>
+            <a class="jh-create-entity create-prijava" [routerLink]="['/', { outlets: { popup: ['prijava-new'] } }]">
+                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                <span jhiTranslate="rasvetaApp.prijava.nova">Prijavi kvar</span>
+            </a>
+
+        </agm-info-window>
     </agm-marker>
 
 

@@ -33,8 +33,11 @@ export class PrijavaDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.stubService.query()
-            .subscribe((res: HttpResponse<Stub[]>) => { this.stubs = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.prijava.opis = '347';
+        this.prijava.stub = new Stub(942);
+        this.prijava.datum = new Date().toISOString().replace( 'Z', '' );
+        // this.stubService.query()
+        //     .subscribe((res: HttpResponse<Stub[]>) => { this.stubs = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -42,6 +45,7 @@ export class PrijavaDialogComponent implements OnInit {
     }
 
     save() {
+        console.log(this.prijava.datum);
         this.isSaving = true;
         if (this.prijava.id !== undefined) {
             this.subscribeToSaveResponse(

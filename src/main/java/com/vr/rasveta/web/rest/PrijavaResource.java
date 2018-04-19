@@ -40,6 +40,19 @@ public class PrijavaResource {
         this.prijavaRepository = prijavaRepository;
     }
 
+    @PostMapping("/nova-prijava")
+    @Timed
+    public ResponseEntity<Prijava> createNovaPrijava(@RequestBody Prijava prijava) throws URISyntaxException {
+        log.debug("REST request to save Prijava : {}", prijava);
+        if (prijava.getId() != null) {
+            throw new BadRequestAlertException("A new prijava cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        Prijava result = prijavaRepository.save(prijava);
+        return ResponseEntity.created(new URI("/api/prijavas/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
     /**
      * POST  /prijavas : Create a new prijava.
      *

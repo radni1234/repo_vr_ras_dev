@@ -19,7 +19,7 @@ export class PrijavaService {
 
     create(prijava: Prijava): Observable<EntityResponseType> {
         const copy = this.convert(prijava);
-        return this.http.post<Prijava>(this.resourceUrl, copy, { observe: 'response' })
+        return this.http.post<Prijava>('api/nova-prijava', copy, { observe: 'response' })
             .map((res: EntityResponseType) => this.convertResponse(res));
     }
 
@@ -73,7 +73,8 @@ export class PrijavaService {
      */
     private convert(prijava: Prijava): Prijava {
         const copy: Prijava = Object.assign({}, prijava);
-
+        console.log('datum');
+        console.log(prijava.datum);
         copy.datum = this.dateUtils.toDate(prijava.datum);
         return copy;
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
@@ -22,6 +22,8 @@ export class PrijavaDialogComponent implements OnInit {
 
     stubs: Stub[];
 
+    @Input() stub: Stub;
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
@@ -33,8 +35,9 @@ export class PrijavaDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.prijava.opis = '347';
-        this.prijava.stub = new Stub(942);
+        // this.prijava.stub = new Stub(this.route.params);
+        // console.log(this.route.params);
+
         this.prijava.datum = new Date().toISOString().replace( 'Z', '' );
         // this.stubService.query()
         //     .subscribe((res: HttpResponse<Stub[]>) => { this.stubs = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
@@ -95,12 +98,14 @@ export class PrijavaPopupComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.routeSub = this.route.params.subscribe((params) => {
+
             if ( params['id'] ) {
                 this.prijavaPopupService
                     .open(PrijavaDialogComponent as Component, params['id']);
-            } else {
+             } else {
                 this.prijavaPopupService
-                    .open(PrijavaDialogComponent as Component);
+                    .open(PrijavaDialogComponent as Component, null, params['sid']);
+
             }
         });
     }

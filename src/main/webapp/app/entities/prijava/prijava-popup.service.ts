@@ -5,6 +5,7 @@ import { HttpResponse } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { Prijava } from './prijava.model';
 import { PrijavaService } from './prijava.service';
+import {Stub} from '../stub/stub.model';
 
 @Injectable()
 export class PrijavaPopupService {
@@ -20,7 +21,7 @@ export class PrijavaPopupService {
         this.ngbModalRef = null;
     }
 
-    open(component: Component, id?: number | any): Promise<NgbModalRef> {
+    open(component: Component, id?: number | any, sid?: number | any): Promise<NgbModalRef> {
         return new Promise<NgbModalRef>((resolve, reject) => {
             const isOpen = this.ngbModalRef !== null;
             if (isOpen) {
@@ -36,6 +37,15 @@ export class PrijavaPopupService {
                         this.ngbModalRef = this.prijavaModalRef(component, prijava);
                         resolve(this.ngbModalRef);
                     });
+            } else if (sid) {
+                // setTimeout used as a workaround for getting ExpressionChangedAfterItHasBeenCheckedError
+                setTimeout(() => {
+                    let p: Prijava;
+                    p = new Prijava();
+                    p.stub = new Stub(sid);
+                    this.ngbModalRef = this.prijavaModalRef(component, p);
+                    resolve(this.ngbModalRef);
+                }, 0);
             } else {
                 // setTimeout used as a workaround for getting ExpressionChangedAfterItHasBeenCheckedError
                 setTimeout(() => {

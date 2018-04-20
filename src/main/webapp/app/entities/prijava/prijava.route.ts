@@ -49,13 +49,23 @@ export const prijavaRoute: Routes = [
 
 export const prijavaPopupRoute: Routes = [
     {
-        path: 'prijava-new',
+        path: 'prijava-nova',
         component: PrijavaPopupComponent,
         data: {
             authorities: [''],
             pageTitle: 'rasvetaApp.prijava.home.title'
         },
         // canActivate: [UserRouteAccessService],
+        outlet: 'popup'
+    },
+    {
+        path: 'prijava-new/:id',
+        component: PrijavaPopupComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'rasvetaApp.prijava.home.title'
+        },
+        canActivate: [UserRouteAccessService],
         outlet: 'popup'
     },
     {

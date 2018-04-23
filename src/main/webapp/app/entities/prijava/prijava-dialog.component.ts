@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, Input} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
@@ -21,8 +21,6 @@ export class PrijavaDialogComponent implements OnInit {
     isSaving: boolean;
 
     stubs: Stub[];
-
-    @Input() stub: Stub;
 
     constructor(
         public activeModal: NgbActiveModal,

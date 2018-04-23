@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.vr.rasveta.domain.Prijava;
 
 import com.vr.rasveta.repository.PrijavaRepository;
+import com.vr.rasveta.service.PrijavaService;
 import com.vr.rasveta.web.rest.errors.BadRequestAlertException;
 import com.vr.rasveta.web.rest.util.HeaderUtil;
 import com.vr.rasveta.web.rest.util.PaginationUtil;
@@ -36,18 +37,23 @@ public class PrijavaResource {
 
     private final PrijavaRepository prijavaRepository;
 
-    public PrijavaResource(PrijavaRepository prijavaRepository) {
+    private final PrijavaService prijavaService;
+
+    public PrijavaResource(PrijavaRepository prijavaRepository, PrijavaService prijavaService) {
         this.prijavaRepository = prijavaRepository;
+        this.prijavaService = prijavaService;
     }
 
     @PostMapping("/nova-prijava")
     @Timed
     public ResponseEntity<Prijava> createNovaPrijava(@RequestBody Prijava prijava) throws URISyntaxException {
         log.debug("REST request to save Prijava : {}", prijava);
+
         if (prijava.getId() != null) {
             throw new BadRequestAlertException("A new prijava cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Prijava result = prijavaRepository.save(prijava);
+//        Prijava result = prijavaRepository.save(prijava);
+        Prijava result = prijavaService.novaPrijava(prijava);
         return ResponseEntity.created(new URI("/api/prijavas/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);

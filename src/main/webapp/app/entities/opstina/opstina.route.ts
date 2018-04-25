@@ -32,7 +32,7 @@ export const opstinaRoute: Routes = [
             'pagingParams': OpstinaResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_MENADZER'],
             pageTitle: 'rasvetaApp.opstina.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -40,7 +40,7 @@ export const opstinaRoute: Routes = [
         path: 'opstina/:id',
         component: OpstinaDetailComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_MENADZER'],
             pageTitle: 'rasvetaApp.opstina.home.title'
         },
         canActivate: [UserRouteAccessService]
@@ -52,7 +52,7 @@ export const opstinaPopupRoute: Routes = [
         path: 'opstina-new',
         component: OpstinaPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_MENADZER'],
             pageTitle: 'rasvetaApp.opstina.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -62,7 +62,7 @@ export const opstinaPopupRoute: Routes = [
         path: 'opstina/:id/edit',
         component: OpstinaPopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_MENADZER'],
             pageTitle: 'rasvetaApp.opstina.home.title'
         },
         canActivate: [UserRouteAccessService],
@@ -72,7 +72,7 @@ export const opstinaPopupRoute: Routes = [
         path: 'opstina/:id/delete',
         component: OpstinaDeletePopupComponent,
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: ['ROLE_USER', 'ROLE_MENADZER'],
             pageTitle: 'rasvetaApp.opstina.home.title'
         },
         canActivate: [UserRouteAccessService],

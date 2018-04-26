@@ -118,6 +118,11 @@ export class HomeComponent implements OnInit {
                     this.lon_do = $event.b.f;
                     this.lat_od = $event.f.b;
                     this.lat_do = $event.f.f;
+
+                    if (this.infoWindowOpened !== null) {
+                        this.infoWindowOpened.close();
+                        this.infoWindowOpened = null;
+                    }
                 }
             );
         }

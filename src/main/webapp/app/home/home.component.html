@@ -14,13 +14,15 @@
          (boundsChange)="boundsChanged($event)"
          (zoomChange)="zoomChanged($event)">
 
-    <agm-marker *ngFor="let s of stubs"
+    <agm-marker #gm
+                *ngFor="let s of stubs; let i = index"
                 [latitude]="s.latD"
                 [longitude]="s.lonD"
+                (markerClick)="showInfoWindow(infoWindow, i)"
     >
-        <agm-info-window>{{s.rbr}}<br>
-                         {{s.latD}}<br>
-                         {{s.lonD}}<br><br>
+        <agm-info-window #infoWindow>{{s.rbr}}<br>
+                                     {{s.latD}}<br>
+                                     {{s.lonD}}<br><br>
             <a class="jh-create-entity create-prijava" [routerLink]="['/', { outlets: { popup: ['prijava-nova', {sid: s.rbr} ] } }]">
                 <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
                 <span jhiTranslate="rasvetaApp.prijava.nova">Prijavi kvar</span>

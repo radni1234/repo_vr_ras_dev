@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
     lat_do = 0;
 
     searchControl: FormControl;
+    infoWindowOpened = null;
 
     @ViewChild('search')
     public searchElementRef: ElementRef;
@@ -130,6 +131,18 @@ export class HomeComponent implements OnInit {
         console.log('zoomChanged');
         console.log($event);
         this.zoomCurrent = $event;
+    }
+
+    showInfoWindow(infoWindow, index) {
+        if (this.infoWindowOpened === infoWindow) {
+            return;
+        }
+
+        if (this.infoWindowOpened !== null) {
+            this.infoWindowOpened.close();
+        }
+
+        this.infoWindowOpened = infoWindow;
     }
 
     registerAuthenticationSuccess() {

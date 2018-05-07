@@ -1,3 +1,6 @@
 ID,NAZIV
-1,OK
-2,PRIJAVA
+1,Bez kvarova
+2,Prijavljen kvar
+3,Dat nalog izvođaču
+4,Nalog na čekanju
+5,Za verifikaciju

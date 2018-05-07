@@ -22,8 +22,6 @@
                   file="config/liquibase/opstina.csv"
                   separator=","
                   tableName="opstina"/>
-
-
         <loadData encoding="UTF-8"
                   file="config/liquibase/mesto.csv"
                   separator=","
@@ -43,7 +41,34 @@
                   file="config/liquibase/stub.csv"
                   separator=","
                   tableName="stub"/>
-
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/svetiljka_tip.csv"
+                  separator=","
+                  tableName="svetiljka_tip"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/svetiljka.csv"
+                  separator=","
+                  tableName="svetiljka"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/jed_mere.csv"
+                  separator=","
+                  tableName="jed_mere"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/intervencija_tip.csv"
+                  separator=","
+                  tableName="intervencija_tip"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/materijal_tip.csv"
+                  separator=","
+                  tableName="materijal_tip"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/ugovor_materijal.csv"
+                  separator=","
+                  tableName="ugovor_materijal"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/ugovor_intervencija.csv"
+                  separator=","
+                  tableName="ugovor_intervencija"/>
 
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

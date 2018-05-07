@@ -138,7 +138,7 @@ export class HomeComponent implements OnInit {
         this.zoomCurrent = $event;
     }
 
-    showInfoWindow(infoWindow, index) {
+    showInfoWindow(infoWindow) {
         if (this.infoWindowOpened === infoWindow) {
             return;
         }

@@ -14,11 +14,10 @@
          (boundsChange)="boundsChanged($event)"
          (zoomChange)="zoomChanged($event)">
 
-    <agm-marker #gm
-                *ngFor="let s of stubs; let i = index"
+    <agm-marker *ngFor="let s of stubs;"
                 [latitude]="s.latD"
                 [longitude]="s.lonD"
-                (markerClick)="showInfoWindow(infoWindow, i)"
+                (markerClick)="showInfoWindow(infoWindow)"
     >
         <agm-info-window #infoWindow>{{s.rbr}}<br>
                                      {{s.latD}}<br>

@@ -54,7 +54,7 @@ entity UgovorMaterijal {
 }
 
 entity UgovorMaterijalStav {
-	naziv String,
+	opis String,
 	cena Double
 }
 
@@ -65,7 +65,7 @@ entity UgovorIntervencija {
 }
 
 entity UgovorIntervencijaStav {
-	naziv String,
+	opis String,
 	cena Double
 }
 
@@ -104,9 +104,11 @@ relationship ManyToOne {
     UgovorMaterijal{opstina} to Opstina,
     UgovorIntervencija{opstina} to Opstina,
     UgovorMaterijalStav{ugovorMaterijal} to UgovorMaterijal,
-    UgovorMaterijalStav{jedMere} to JedMere,
+    UgovorMaterijalStav{materijalTip} to MaterijalTip,
+    MaterijalTip{jedMere} to JedMere,
     UgovorIntervencijaStav{ugovorIntervencija} to UgovorIntervencija,
-    UgovorIntervencijaStav{jedMere} to JedMere,
+    UgovorIntervencijaStav{intervencijaTip} to IntervencijaTip,
+    IntervencijaTip{jedMere} to JedMere,
     Prijava{stub} to Stub,
     PrijavaStatus{prijava} to Prijava,
     PrijavaStatus{status} to Status,

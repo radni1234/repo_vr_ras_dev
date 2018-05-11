@@ -9,6 +9,7 @@ import { RasvetaTestModule } from '../../../test.module';
 import { IntervencijaTipDialogComponent } from '../../../../../../main/webapp/app/entities/intervencija-tip/intervencija-tip-dialog.component';
 import { IntervencijaTipService } from '../../../../../../main/webapp/app/entities/intervencija-tip/intervencija-tip.service';
 import { IntervencijaTip } from '../../../../../../main/webapp/app/entities/intervencija-tip/intervencija-tip.model';
+import { JedMereService } from '../../../../../../main/webapp/app/entities/jed-mere';
 
 describe('Component Tests', () => {
 
@@ -24,6 +25,7 @@ describe('Component Tests', () => {
                 imports: [RasvetaTestModule],
                 declarations: [IntervencijaTipDialogComponent],
                 providers: [
+                    JedMereService,
                     IntervencijaTipService
                 ]
             })

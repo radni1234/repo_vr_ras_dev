@@ -16,7 +16,8 @@
             "detail": {
                 "title": "Intervencija Tip"
             },
-            "naziv": "Naziv"
+            "naziv": "Naziv",
+            "jedMere": "Jed Mere"
         }
     }
 }

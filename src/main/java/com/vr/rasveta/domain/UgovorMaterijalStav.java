@@ -22,8 +22,8 @@ public class UgovorMaterijalStav implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "naziv")
-    private String naziv;
+    @Column(name = "opis")
+    private String opis;
 
     @Column(name = "cena")
     private Double cena;
@@ -32,7 +32,7 @@ public class UgovorMaterijalStav implements Serializable {
     private UgovorMaterijal ugovorMaterijal;
 
     @ManyToOne
-    private JedMere jedMere;
+    private MaterijalTip materijalTip;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,17 +43,17 @@ public class UgovorMaterijalStav implements Serializable {
         this.id = id;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getOpis() {
+        return opis;
     }
 
-    public UgovorMaterijalStav naziv(String naziv) {
-        this.naziv = naziv;
+    public UgovorMaterijalStav opis(String opis) {
+        this.opis = opis;
         return this;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setOpis(String opis) {
+        this.opis = opis;
     }
 
     public Double getCena() {
@@ -82,17 +82,17 @@ public class UgovorMaterijalStav implements Serializable {
         this.ugovorMaterijal = ugovorMaterijal;
     }
 
-    public JedMere getJedMere() {
-        return jedMere;
+    public MaterijalTip getMaterijalTip() {
+        return materijalTip;
     }
 
-    public UgovorMaterijalStav jedMere(JedMere jedMere) {
-        this.jedMere = jedMere;
+    public UgovorMaterijalStav materijalTip(MaterijalTip materijalTip) {
+        this.materijalTip = materijalTip;
         return this;
     }
 
-    public void setJedMere(JedMere jedMere) {
-        this.jedMere = jedMere;
+    public void setMaterijalTip(MaterijalTip materijalTip) {
+        this.materijalTip = materijalTip;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -120,7 +120,7 @@ public class UgovorMaterijalStav implements Serializable {
     public String toString() {
         return "UgovorMaterijalStav{" +
             "id=" + getId() +
-            ", naziv='" + getNaziv() + "'" +
+            ", opis='" + getOpis() + "'" +
             ", cena=" + getCena() +
             "}";
     }

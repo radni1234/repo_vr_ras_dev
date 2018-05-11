@@ -10,7 +10,7 @@ import { UgovorMaterijalStav } from './ugovor-materijal-stav.model';
 import { UgovorMaterijalStavPopupService } from './ugovor-materijal-stav-popup.service';
 import { UgovorMaterijalStavService } from './ugovor-materijal-stav.service';
 import { UgovorMaterijal, UgovorMaterijalService } from '../ugovor-materijal';
-import { JedMere, JedMereService } from '../jed-mere';
+import { MaterijalTip, MaterijalTipService } from '../materijal-tip';
 
 @Component({
     selector: 'jhi-ugovor-materijal-stav-dialog',
@@ -23,14 +23,14 @@ export class UgovorMaterijalStavDialogComponent implements OnInit {
 
     ugovormaterijals: UgovorMaterijal[];
 
-    jedmeres: JedMere[];
+    materijaltips: MaterijalTip[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private ugovorMaterijalStavService: UgovorMaterijalStavService,
         private ugovorMaterijalService: UgovorMaterijalService,
-        private jedMereService: JedMereService,
+        private materijalTipService: MaterijalTipService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -39,8 +39,8 @@ export class UgovorMaterijalStavDialogComponent implements OnInit {
         this.isSaving = false;
         this.ugovorMaterijalService.query()
             .subscribe((res: HttpResponse<UgovorMaterijal[]>) => { this.ugovormaterijals = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.jedMereService.query()
-            .subscribe((res: HttpResponse<JedMere[]>) => { this.jedmeres = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.materijalTipService.query()
+            .subscribe((res: HttpResponse<MaterijalTip[]>) => { this.materijaltips = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -81,7 +81,7 @@ export class UgovorMaterijalStavDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackJedMereById(index: number, item: JedMere) {
+    trackMaterijalTipById(index: number, item: MaterijalTip) {
         return item.id;
     }
 }

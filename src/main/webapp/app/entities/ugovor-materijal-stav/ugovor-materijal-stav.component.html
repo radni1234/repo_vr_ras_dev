@@ -17,17 +17,17 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="naziv"><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.naziv">Naziv</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="opis"><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.opis">Opis</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="cena"><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.cena">Cena</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="ugovorMaterijal.id"><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.ugovorMaterijal">Ugovor Materijal</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="jedMere.id"><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.jedMere">Jed Mere</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="materijalTip.id"><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.materijalTip">Materijal Tip</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let ugovorMaterijalStav of ugovorMaterijalStavs ;trackBy: trackId">
                 <td><a [routerLink]="['../ugovor-materijal-stav', ugovorMaterijalStav.id ]">{{ugovorMaterijalStav.id}}</a></td>
-                <td>{{ugovorMaterijalStav.naziv}}</td>
+                <td>{{ugovorMaterijalStav.opis}}</td>
                 <td>{{ugovorMaterijalStav.cena}}</td>
                 <td>
                     <div *ngIf="ugovorMaterijalStav.ugovorMaterijal">
@@ -35,8 +35,8 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="ugovorMaterijalStav.jedMere">
-                        <a [routerLink]="['../jed-mere', ugovorMaterijalStav.jedMere?.id ]" >{{ugovorMaterijalStav.jedMere?.id}}</a>
+                    <div *ngIf="ugovorMaterijalStav.materijalTip">
+                        <a [routerLink]="['../materijal-tip', ugovorMaterijalStav.materijalTip?.id ]" >{{ugovorMaterijalStav.materijalTip?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

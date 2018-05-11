@@ -8,6 +8,12 @@
         <dd>
             <span>{{intervencijaTip.naziv}}</span>
         </dd>
+        <dt><span jhiTranslate="rasvetaApp.intervencijaTip.jedMere">Jed Mere</span></dt>
+        <dd>
+            <div *ngIf="intervencijaTip.jedMere">
+                <a [routerLink]="['/jed-mere', intervencijaTip.jedMere?.id]">{{intervencijaTip.jedMere?.id}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

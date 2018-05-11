@@ -10,7 +10,7 @@ import { UgovorMaterijalStavDialogComponent } from '../../../../../../main/webap
 import { UgovorMaterijalStavService } from '../../../../../../main/webapp/app/entities/ugovor-materijal-stav/ugovor-materijal-stav.service';
 import { UgovorMaterijalStav } from '../../../../../../main/webapp/app/entities/ugovor-materijal-stav/ugovor-materijal-stav.model';
 import { UgovorMaterijalService } from '../../../../../../main/webapp/app/entities/ugovor-materijal';
-import { JedMereService } from '../../../../../../main/webapp/app/entities/jed-mere';
+import { MaterijalTipService } from '../../../../../../main/webapp/app/entities/materijal-tip';
 
 describe('Component Tests', () => {
 
@@ -27,7 +27,7 @@ describe('Component Tests', () => {
                 declarations: [UgovorMaterijalStavDialogComponent],
                 providers: [
                     UgovorMaterijalService,
-                    JedMereService,
+                    MaterijalTipService,
                     UgovorMaterijalStavService
                 ]
             })

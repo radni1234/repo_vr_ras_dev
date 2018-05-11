@@ -14,11 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="ugovor_materijal"/>
 
-        <addForeignKeyConstraint baseColumnNames="jed_mere_id"
+        <addForeignKeyConstraint baseColumnNames="materijal_tip_id"
                                  baseTableName="ugovor_materijal_stav"
-                                 constraintName="fk_ugovor_materijal_stav_jed_mere_id"
+                                 constraintName="fk_ugovor_materijal_stav_materijal_tip_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="jed_mere"/>
+                                 referencedTableName="materijal_tip"/>
 
     </changeSet>
 </databaseChangeLog>

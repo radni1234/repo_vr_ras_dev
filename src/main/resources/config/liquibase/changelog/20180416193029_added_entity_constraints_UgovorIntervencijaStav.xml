@@ -14,11 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="ugovor_intervencija"/>
 
-        <addForeignKeyConstraint baseColumnNames="jed_mere_id"
+        <addForeignKeyConstraint baseColumnNames="intervencija_tip_id"
                                  baseTableName="ugovor_intervencija_stav"
-                                 constraintName="fk_ugovor_intervencija_stav_jed_mere_id"
+                                 constraintName="fk_ugovor_intervencija_stav_intervencija_tip_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="jed_mere"/>
+                                 referencedTableName="intervencija_tip"/>
 
     </changeSet>
 </databaseChangeLog>

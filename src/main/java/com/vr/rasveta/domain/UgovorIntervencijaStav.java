@@ -22,8 +22,8 @@ public class UgovorIntervencijaStav implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "naziv")
-    private String naziv;
+    @Column(name = "opis")
+    private String opis;
 
     @Column(name = "cena")
     private Double cena;
@@ -32,7 +32,7 @@ public class UgovorIntervencijaStav implements Serializable {
     private UgovorIntervencija ugovorIntervencija;
 
     @ManyToOne
-    private JedMere jedMere;
+    private IntervencijaTip intervencijaTip;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -43,17 +43,17 @@ public class UgovorIntervencijaStav implements Serializable {
         this.id = id;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getOpis() {
+        return opis;
     }
 
-    public UgovorIntervencijaStav naziv(String naziv) {
-        this.naziv = naziv;
+    public UgovorIntervencijaStav opis(String opis) {
+        this.opis = opis;
         return this;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setOpis(String opis) {
+        this.opis = opis;
     }
 
     public Double getCena() {
@@ -82,17 +82,17 @@ public class UgovorIntervencijaStav implements Serializable {
         this.ugovorIntervencija = ugovorIntervencija;
     }
 
-    public JedMere getJedMere() {
-        return jedMere;
+    public IntervencijaTip getIntervencijaTip() {
+        return intervencijaTip;
     }
 
-    public UgovorIntervencijaStav jedMere(JedMere jedMere) {
-        this.jedMere = jedMere;
+    public UgovorIntervencijaStav intervencijaTip(IntervencijaTip intervencijaTip) {
+        this.intervencijaTip = intervencijaTip;
         return this;
     }
 
-    public void setJedMere(JedMere jedMere) {
-        this.jedMere = jedMere;
+    public void setIntervencijaTip(IntervencijaTip intervencijaTip) {
+        this.intervencijaTip = intervencijaTip;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -120,7 +120,7 @@ public class UgovorIntervencijaStav implements Serializable {
     public String toString() {
         return "UgovorIntervencijaStav{" +
             "id=" + getId() +
-            ", naziv='" + getNaziv() + "'" +
+            ", opis='" + getOpis() + "'" +
             ", cena=" + getCena() +
             "}";
     }

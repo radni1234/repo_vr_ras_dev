@@ -10,7 +10,7 @@ import { UgovorIntervencijaStav } from './ugovor-intervencija-stav.model';
 import { UgovorIntervencijaStavPopupService } from './ugovor-intervencija-stav-popup.service';
 import { UgovorIntervencijaStavService } from './ugovor-intervencija-stav.service';
 import { UgovorIntervencija, UgovorIntervencijaService } from '../ugovor-intervencija';
-import { JedMere, JedMereService } from '../jed-mere';
+import { IntervencijaTip, IntervencijaTipService } from '../intervencija-tip';
 
 @Component({
     selector: 'jhi-ugovor-intervencija-stav-dialog',
@@ -23,14 +23,14 @@ export class UgovorIntervencijaStavDialogComponent implements OnInit {
 
     ugovorintervencijas: UgovorIntervencija[];
 
-    jedmeres: JedMere[];
+    intervencijatips: IntervencijaTip[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private ugovorIntervencijaStavService: UgovorIntervencijaStavService,
         private ugovorIntervencijaService: UgovorIntervencijaService,
-        private jedMereService: JedMereService,
+        private intervencijaTipService: IntervencijaTipService,
         private eventManager: JhiEventManager
     ) {
     }
@@ -39,8 +39,8 @@ export class UgovorIntervencijaStavDialogComponent implements OnInit {
         this.isSaving = false;
         this.ugovorIntervencijaService.query()
             .subscribe((res: HttpResponse<UgovorIntervencija[]>) => { this.ugovorintervencijas = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
-        this.jedMereService.query()
-            .subscribe((res: HttpResponse<JedMere[]>) => { this.jedmeres = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.intervencijaTipService.query()
+            .subscribe((res: HttpResponse<IntervencijaTip[]>) => { this.intervencijatips = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -81,7 +81,7 @@ export class UgovorIntervencijaStavDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackJedMereById(index: number, item: JedMere) {
+    trackIntervencijaTipById(index: number, item: IntervencijaTip) {
         return item.id;
     }
 }

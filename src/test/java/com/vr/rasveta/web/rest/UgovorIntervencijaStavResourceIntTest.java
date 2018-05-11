@@ -38,8 +38,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = RasvetaApp.class)
 public class UgovorIntervencijaStavResourceIntTest {
 
-    private static final String DEFAULT_NAZIV = "AAAAAAAAAA";
-    private static final String UPDATED_NAZIV = "BBBBBBBBBB";
+    private static final String DEFAULT_OPIS = "AAAAAAAAAA";
+    private static final String UPDATED_OPIS = "BBBBBBBBBB";
 
     private static final Double DEFAULT_CENA = 1D;
     private static final Double UPDATED_CENA = 2D;
@@ -82,7 +82,7 @@ public class UgovorIntervencijaStavResourceIntTest {
      */
     public static UgovorIntervencijaStav createEntity(EntityManager em) {
         UgovorIntervencijaStav ugovorIntervencijaStav = new UgovorIntervencijaStav()
-            .naziv(DEFAULT_NAZIV)
+            .opis(DEFAULT_OPIS)
             .cena(DEFAULT_CENA);
         return ugovorIntervencijaStav;
     }
@@ -107,7 +107,7 @@ public class UgovorIntervencijaStavResourceIntTest {
         List<UgovorIntervencijaStav> ugovorIntervencijaStavList = ugovorIntervencijaStavRepository.findAll();
         assertThat(ugovorIntervencijaStavList).hasSize(databaseSizeBeforeCreate + 1);
         UgovorIntervencijaStav testUgovorIntervencijaStav = ugovorIntervencijaStavList.get(ugovorIntervencijaStavList.size() - 1);
-        assertThat(testUgovorIntervencijaStav.getNaziv()).isEqualTo(DEFAULT_NAZIV);
+        assertThat(testUgovorIntervencijaStav.getOpis()).isEqualTo(DEFAULT_OPIS);
         assertThat(testUgovorIntervencijaStav.getCena()).isEqualTo(DEFAULT_CENA);
     }
 
@@ -141,7 +141,7 @@ public class UgovorIntervencijaStavResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ugovorIntervencijaStav.getId().intValue())))
-            .andExpect(jsonPath("$.[*].naziv").value(hasItem(DEFAULT_NAZIV.toString())))
+            .andExpect(jsonPath("$.[*].opis").value(hasItem(DEFAULT_OPIS.toString())))
             .andExpect(jsonPath("$.[*].cena").value(hasItem(DEFAULT_CENA.doubleValue())));
     }
 
@@ -156,7 +156,7 @@ public class UgovorIntervencijaStavResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(ugovorIntervencijaStav.getId().intValue()))
-            .andExpect(jsonPath("$.naziv").value(DEFAULT_NAZIV.toString()))
+            .andExpect(jsonPath("$.opis").value(DEFAULT_OPIS.toString()))
             .andExpect(jsonPath("$.cena").value(DEFAULT_CENA.doubleValue()));
     }
 
@@ -180,7 +180,7 @@ public class UgovorIntervencijaStavResourceIntTest {
         // Disconnect from session so that the updates on updatedUgovorIntervencijaStav are not directly saved in db
         em.detach(updatedUgovorIntervencijaStav);
         updatedUgovorIntervencijaStav
-            .naziv(UPDATED_NAZIV)
+            .opis(UPDATED_OPIS)
             .cena(UPDATED_CENA);
 
         restUgovorIntervencijaStavMockMvc.perform(put("/api/ugovor-intervencija-stavs")
@@ -192,7 +192,7 @@ public class UgovorIntervencijaStavResourceIntTest {
         List<UgovorIntervencijaStav> ugovorIntervencijaStavList = ugovorIntervencijaStavRepository.findAll();
         assertThat(ugovorIntervencijaStavList).hasSize(databaseSizeBeforeUpdate);
         UgovorIntervencijaStav testUgovorIntervencijaStav = ugovorIntervencijaStavList.get(ugovorIntervencijaStavList.size() - 1);
-        assertThat(testUgovorIntervencijaStav.getNaziv()).isEqualTo(UPDATED_NAZIV);
+        assertThat(testUgovorIntervencijaStav.getOpis()).isEqualTo(UPDATED_OPIS);
         assertThat(testUgovorIntervencijaStav.getCena()).isEqualTo(UPDATED_CENA);
     }
 

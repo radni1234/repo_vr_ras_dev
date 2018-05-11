@@ -9,14 +9,14 @@
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "jedMere",
-            "otherEntityName": "jedMere",
+            "relationshipName": "intervencijaTip",
+            "otherEntityName": "intervencijaTip",
             "otherEntityField": "id"
         }
     ],
     "fields": [
         {
-            "fieldName": "naziv",
+            "fieldName": "opis",
             "fieldType": "String"
         },
         {

@@ -13,9 +13,9 @@
                    [(ngModel)]="ugovorMaterijalStav.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="rasvetaApp.ugovorMaterijalStav.naziv" for="field_naziv">Naziv</label>
-            <input type="text" class="form-control" name="naziv" id="field_naziv"
-                [(ngModel)]="ugovorMaterijalStav.naziv" />
+            <label class="form-control-label" jhiTranslate="rasvetaApp.ugovorMaterijalStav.opis" for="field_opis">Opis</label>
+            <input type="text" class="form-control" name="opis" id="field_opis"
+                [(ngModel)]="ugovorMaterijalStav.opis" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="rasvetaApp.ugovorMaterijalStav.cena" for="field_cena">Cena</label>
@@ -31,10 +31,10 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="rasvetaApp.ugovorMaterijalStav.jedMere" for="field_jedMere">Jed Mere</label>
-            <select class="form-control" id="field_jedMere" name="jedMere" [(ngModel)]="ugovorMaterijalStav.jedMere" >
+            <label class="form-control-label" jhiTranslate="rasvetaApp.ugovorMaterijalStav.materijalTip" for="field_materijalTip">Materijal Tip</label>
+            <select class="form-control" id="field_materijalTip" name="materijalTip" [(ngModel)]="ugovorMaterijalStav.materijalTip" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="jedMereOption.id === ugovorMaterijalStav.jedMere?.id ? ugovorMaterijalStav.jedMere : jedMereOption" *ngFor="let jedMereOption of jedmeres; trackBy: trackJedMereById">{{jedMereOption.id}}</option>
+                <option [ngValue]="materijalTipOption.id === ugovorMaterijalStav.materijalTip?.id ? ugovorMaterijalStav.materijalTip : materijalTipOption" *ngFor="let materijalTipOption of materijaltips; trackBy: trackMaterijalTipById">{{materijalTipOption.id}}</option>
             </select>
         </div>
     </div>

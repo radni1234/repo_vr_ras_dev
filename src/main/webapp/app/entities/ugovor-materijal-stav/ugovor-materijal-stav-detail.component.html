@@ -4,9 +4,9 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.naziv">Naziv</span></dt>
+        <dt><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.opis">Opis</span></dt>
         <dd>
-            <span>{{ugovorMaterijalStav.naziv}}</span>
+            <span>{{ugovorMaterijalStav.opis}}</span>
         </dd>
         <dt><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.cena">Cena</span></dt>
         <dd>
@@ -18,10 +18,10 @@
                 <a [routerLink]="['/ugovor-materijal', ugovorMaterijalStav.ugovorMaterijal?.id]">{{ugovorMaterijalStav.ugovorMaterijal?.id}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.jedMere">Jed Mere</span></dt>
+        <dt><span jhiTranslate="rasvetaApp.ugovorMaterijalStav.materijalTip">Materijal Tip</span></dt>
         <dd>
-            <div *ngIf="ugovorMaterijalStav.jedMere">
-                <a [routerLink]="['/jed-mere', ugovorMaterijalStav.jedMere?.id]">{{ugovorMaterijalStav.jedMere?.id}}</a>
+            <div *ngIf="ugovorMaterijalStav.materijalTip">
+                <a [routerLink]="['/materijal-tip', ugovorMaterijalStav.materijalTip?.id]">{{ugovorMaterijalStav.materijalTip?.id}}</a>
             </div>
         </dd>
     </dl>

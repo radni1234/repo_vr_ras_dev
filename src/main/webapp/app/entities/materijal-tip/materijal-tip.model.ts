@@ -4,6 +4,7 @@ export class MaterijalTip implements BaseEntity {
     constructor(
         public id?: number,
         public naziv?: string,
+        public jedMere?: BaseEntity,
     ) {
     }
 }

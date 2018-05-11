@@ -4,11 +4,12 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { MaterijalTip } from './materijal-tip.model';
 import { MaterijalTipPopupService } from './materijal-tip-popup.service';
 import { MaterijalTipService } from './materijal-tip.service';
+import { JedMere, JedMereService } from '../jed-mere';
 
 @Component({
     selector: 'jhi-materijal-tip-dialog',
@@ -19,15 +20,21 @@ export class MaterijalTipDialogComponent implements OnInit {
     materijalTip: MaterijalTip;
     isSaving: boolean;
 
+    jedmeres: JedMere[];
+
     constructor(
         public activeModal: NgbActiveModal,
+        private jhiAlertService: JhiAlertService,
         private materijalTipService: MaterijalTipService,
+        private jedMereService: JedMereService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.jedMereService.query()
+            .subscribe((res: HttpResponse<JedMere[]>) => { this.jedmeres = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -58,6 +65,14 @@ export class MaterijalTipDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(error: any) {
+        this.jhiAlertService.error(error.message, null, null);
+    }
+
+    trackJedMereById(index: number, item: JedMere) {
+        return item.id;
     }
 }
 

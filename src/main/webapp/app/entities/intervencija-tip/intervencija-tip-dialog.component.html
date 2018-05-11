@@ -18,6 +18,13 @@
                 [(ngModel)]="intervencijaTip.naziv" />
         </div>
 
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="rasvetaApp.intervencijaTip.jedMere" for="field_jedMere">Jed Mere</label>
+            <select class="form-control" id="field_jedMere" name="jedMere" [(ngModel)]="intervencijaTip.jedMere" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="jedMereOption.id === intervencijaTip.jedMere?.id ? intervencijaTip.jedMere : jedMereOption" *ngFor="let jedMereOption of jedmeres; trackBy: trackJedMereById">{{jedMereOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

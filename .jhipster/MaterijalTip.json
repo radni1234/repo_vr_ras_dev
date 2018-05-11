@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "jedMere",
+            "otherEntityName": "jedMere",
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
             "fieldName": "naziv",

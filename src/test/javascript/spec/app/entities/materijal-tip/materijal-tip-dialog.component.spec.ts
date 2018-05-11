@@ -9,6 +9,7 @@ import { RasvetaTestModule } from '../../../test.module';
 import { MaterijalTipDialogComponent } from '../../../../../../main/webapp/app/entities/materijal-tip/materijal-tip-dialog.component';
 import { MaterijalTipService } from '../../../../../../main/webapp/app/entities/materijal-tip/materijal-tip.service';
 import { MaterijalTip } from '../../../../../../main/webapp/app/entities/materijal-tip/materijal-tip.model';
+import { JedMereService } from '../../../../../../main/webapp/app/entities/jed-mere';
 
 describe('Component Tests', () => {
 
@@ -24,6 +25,7 @@ describe('Component Tests', () => {
                 imports: [RasvetaTestModule],
                 declarations: [MaterijalTipDialogComponent],
                 providers: [
+                    JedMereService,
                     MaterijalTipService
                 ]
             })

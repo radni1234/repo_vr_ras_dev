@@ -38,8 +38,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = RasvetaApp.class)
 public class UgovorMaterijalStavResourceIntTest {
 
-    private static final String DEFAULT_NAZIV = "AAAAAAAAAA";
-    private static final String UPDATED_NAZIV = "BBBBBBBBBB";
+    private static final String DEFAULT_OPIS = "AAAAAAAAAA";
+    private static final String UPDATED_OPIS = "BBBBBBBBBB";
 
     private static final Double DEFAULT_CENA = 1D;
     private static final Double UPDATED_CENA = 2D;
@@ -82,7 +82,7 @@ public class UgovorMaterijalStavResourceIntTest {
      */
     public static UgovorMaterijalStav createEntity(EntityManager em) {
         UgovorMaterijalStav ugovorMaterijalStav = new UgovorMaterijalStav()
-            .naziv(DEFAULT_NAZIV)
+            .opis(DEFAULT_OPIS)
             .cena(DEFAULT_CENA);
         return ugovorMaterijalStav;
     }
@@ -107,7 +107,7 @@ public class UgovorMaterijalStavResourceIntTest {
         List<UgovorMaterijalStav> ugovorMaterijalStavList = ugovorMaterijalStavRepository.findAll();
         assertThat(ugovorMaterijalStavList).hasSize(databaseSizeBeforeCreate + 1);
         UgovorMaterijalStav testUgovorMaterijalStav = ugovorMaterijalStavList.get(ugovorMaterijalStavList.size() - 1);
-        assertThat(testUgovorMaterijalStav.getNaziv()).isEqualTo(DEFAULT_NAZIV);
+        assertThat(testUgovorMaterijalStav.getOpis()).isEqualTo(DEFAULT_OPIS);
         assertThat(testUgovorMaterijalStav.getCena()).isEqualTo(DEFAULT_CENA);
     }
 
@@ -141,7 +141,7 @@ public class UgovorMaterijalStavResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ugovorMaterijalStav.getId().intValue())))
-            .andExpect(jsonPath("$.[*].naziv").value(hasItem(DEFAULT_NAZIV.toString())))
+            .andExpect(jsonPath("$.[*].opis").value(hasItem(DEFAULT_OPIS.toString())))
             .andExpect(jsonPath("$.[*].cena").value(hasItem(DEFAULT_CENA.doubleValue())));
     }
 
@@ -156,7 +156,7 @@ public class UgovorMaterijalStavResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(ugovorMaterijalStav.getId().intValue()))
-            .andExpect(jsonPath("$.naziv").value(DEFAULT_NAZIV.toString()))
+            .andExpect(jsonPath("$.opis").value(DEFAULT_OPIS.toString()))
             .andExpect(jsonPath("$.cena").value(DEFAULT_CENA.doubleValue()));
     }
 
@@ -180,7 +180,7 @@ public class UgovorMaterijalStavResourceIntTest {
         // Disconnect from session so that the updates on updatedUgovorMaterijalStav are not directly saved in db
         em.detach(updatedUgovorMaterijalStav);
         updatedUgovorMaterijalStav
-            .naziv(UPDATED_NAZIV)
+            .opis(UPDATED_OPIS)
             .cena(UPDATED_CENA);
 
         restUgovorMaterijalStavMockMvc.perform(put("/api/ugovor-materijal-stavs")
@@ -192,7 +192,7 @@ public class UgovorMaterijalStavResourceIntTest {
         List<UgovorMaterijalStav> ugovorMaterijalStavList = ugovorMaterijalStavRepository.findAll();
         assertThat(ugovorMaterijalStavList).hasSize(databaseSizeBeforeUpdate);
         UgovorMaterijalStav testUgovorMaterijalStav = ugovorMaterijalStavList.get(ugovorMaterijalStavList.size() - 1);
-        assertThat(testUgovorMaterijalStav.getNaziv()).isEqualTo(UPDATED_NAZIV);
+        assertThat(testUgovorMaterijalStav.getOpis()).isEqualTo(UPDATED_OPIS);
         assertThat(testUgovorMaterijalStav.getCena()).isEqualTo(UPDATED_CENA);
     }
 

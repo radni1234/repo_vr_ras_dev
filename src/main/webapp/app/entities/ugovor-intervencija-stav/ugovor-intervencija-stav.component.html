@@ -17,17 +17,17 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="naziv"><span jhiTranslate="rasvetaApp.ugovorIntervencijaStav.naziv">Naziv</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="opis"><span jhiTranslate="rasvetaApp.ugovorIntervencijaStav.opis">Opis</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="cena"><span jhiTranslate="rasvetaApp.ugovorIntervencijaStav.cena">Cena</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="ugovorIntervencija.id"><span jhiTranslate="rasvetaApp.ugovorIntervencijaStav.ugovorIntervencija">Ugovor Intervencija</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="jedMere.id"><span jhiTranslate="rasvetaApp.ugovorIntervencijaStav.jedMere">Jed Mere</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="intervencijaTip.id"><span jhiTranslate="rasvetaApp.ugovorIntervencijaStav.intervencijaTip">Intervencija Tip</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let ugovorIntervencijaStav of ugovorIntervencijaStavs ;trackBy: trackId">
                 <td><a [routerLink]="['../ugovor-intervencija-stav', ugovorIntervencijaStav.id ]">{{ugovorIntervencijaStav.id}}</a></td>
-                <td>{{ugovorIntervencijaStav.naziv}}</td>
+                <td>{{ugovorIntervencijaStav.opis}}</td>
                 <td>{{ugovorIntervencijaStav.cena}}</td>
                 <td>
                     <div *ngIf="ugovorIntervencijaStav.ugovorIntervencija">
@@ -35,8 +35,8 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="ugovorIntervencijaStav.jedMere">
-                        <a [routerLink]="['../jed-mere', ugovorIntervencijaStav.jedMere?.id ]" >{{ugovorIntervencijaStav.jedMere?.id}}</a>
+                    <div *ngIf="ugovorIntervencijaStav.intervencijaTip">
+                        <a [routerLink]="['../intervencija-tip', ugovorIntervencijaStav.intervencijaTip?.id ]" >{{ugovorIntervencijaStav.intervencijaTip?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

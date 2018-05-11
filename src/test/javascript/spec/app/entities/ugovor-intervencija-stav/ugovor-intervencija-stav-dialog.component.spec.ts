@@ -10,7 +10,7 @@ import { UgovorIntervencijaStavDialogComponent } from '../../../../../../main/we
 import { UgovorIntervencijaStavService } from '../../../../../../main/webapp/app/entities/ugovor-intervencija-stav/ugovor-intervencija-stav.service';
 import { UgovorIntervencijaStav } from '../../../../../../main/webapp/app/entities/ugovor-intervencija-stav/ugovor-intervencija-stav.model';
 import { UgovorIntervencijaService } from '../../../../../../main/webapp/app/entities/ugovor-intervencija';
-import { JedMereService } from '../../../../../../main/webapp/app/entities/jed-mere';
+import { IntervencijaTipService } from '../../../../../../main/webapp/app/entities/intervencija-tip';
 
 describe('Component Tests', () => {
 
@@ -27,7 +27,7 @@ describe('Component Tests', () => {
                 declarations: [UgovorIntervencijaStavDialogComponent],
                 providers: [
                     UgovorIntervencijaService,
-                    JedMereService,
+                    IntervencijaTipService,
                     UgovorIntervencijaStavService
                 ]
             })

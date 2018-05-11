@@ -55,19 +55,19 @@ public class PrijavaResourceIntTest {
     private static final Instant DEFAULT_DATUM = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATUM = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    @Autowired
+//    @Autowired
     private PrijavaRepository prijavaRepository;
 
-    @Autowired
+//    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
-    @Autowired
+//    @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
 
-    @Autowired
+//    @Autowired
     private ExceptionTranslator exceptionTranslator;
 
-    @Autowired
+//    @Autowired
     private EntityManager em;
 
     private MockMvc restPrijavaMockMvc;
@@ -77,12 +77,12 @@ public class PrijavaResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final PrijavaResource prijavaResource = new PrijavaResource(prijavaRepository);
-        this.restPrijavaMockMvc = MockMvcBuilders.standaloneSetup(prijavaResource)
-            .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
-            .setConversionService(createFormattingConversionService())
-            .setMessageConverters(jacksonMessageConverter).build();
+//        final PrijavaResource prijavaResource = new PrijavaResource(prijavaRepository);
+//        this.restPrijavaMockMvc = MockMvcBuilders.standaloneSetup(prijavaResource)
+//            .setCustomArgumentResolvers(pageableArgumentResolver)
+//            .setControllerAdvice(exceptionTranslator)
+//            .setConversionService(createFormattingConversionService())
+//            .setMessageConverters(jacksonMessageConverter).build();
     }
 
     /**

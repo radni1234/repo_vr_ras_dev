@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Ugovor Intervencija Stav"
             },
-            "naziv": "Naziv",
+            "opis": "Opis",
             "cena": "Cena",
             "ugovorIntervencija": "Ugovor Intervencija",
-            "jedMere": "Jed Mere"
+            "intervencijaTip": "Intervencija Tip"
         }
     }
 }

@@ -25,6 +25,9 @@ public class MaterijalTip implements Serializable {
     @Column(name = "naziv")
     private String naziv;
 
+    @ManyToOne
+    private JedMere jedMere;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -45,6 +48,19 @@ public class MaterijalTip implements Serializable {
 
     public void setNaziv(String naziv) {
         this.naziv = naziv;
+    }
+
+    public JedMere getJedMere() {
+        return jedMere;
+    }
+
+    public MaterijalTip jedMere(JedMere jedMere) {
+        this.jedMere = jedMere;
+        return this;
+    }
+
+    public void setJedMere(JedMere jedMere) {
+        this.jedMere = jedMere;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

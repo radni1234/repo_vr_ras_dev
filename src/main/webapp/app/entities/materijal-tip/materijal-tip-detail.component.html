@@ -8,6 +8,12 @@
         <dd>
             <span>{{materijalTip.naziv}}</span>
         </dd>
+        <dt><span jhiTranslate="rasvetaApp.materijalTip.jedMere">Jed Mere</span></dt>
+        <dd>
+            <div *ngIf="materijalTip.jedMere">
+                <a [routerLink]="['/jed-mere', materijalTip.jedMere?.id]">{{materijalTip.jedMere?.id}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"
